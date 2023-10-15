@@ -1,14 +1,11 @@
 <?php
 
 class produk{
-    public  $judul , 
+    private $judul , 
             $penulis, 
-            $penerbit; 
-     
-    protected  $diskon=0;
-    private $harga;
-            
-          
+            $penerbit,
+            $harga, 
+            $diskon=0;
 
   
     public function __construct( $judul = "judul", $penulis  = "penulis", $penerbit = "penerbit", 
@@ -21,7 +18,43 @@ class produk{
     
     } 
 
- 
+    public function setJudul ($judul){
+         $this->judul = $judul ;
+    }
+
+    public function getJudul(){
+        return $this->judul;
+    }
+
+    public function setpenulis ($penulis){
+        $this->penulis = $penulis ;
+   }
+
+    public function getpenulis(){
+       return $this->penulis;
+   }
+
+     public function setpenerbit ($penerbit){
+         $this->penerbit = $penerbit ;
+    }
+
+    public function getpenerbit(){
+        return $this->penerbit;
+    }
+
+    public function setDiskon( $diskon){
+        $this->diskon = $diskon; 
+
+    }
+
+    public function getDiskon(){
+       return $this->diskon;
+    }
+
+
+    public function setHarga ($Harga){
+        $this->Harga = $Harga ;
+   }
 
     public function getHarga(){
         return $this->harga - ( $this->harga * $this->diskon / 100);
@@ -74,12 +107,6 @@ class Game extends Produk {
             $this->waktuMain = $waktuMain;
         }
 
-        public function setDiskon( $diskon){
-            $this->diskon = $diskon; 
-    
-        }
-    
-
     public function getInfoProduk () {
         $str ="Game: " . parent::getInfoProduk(). "- {$this->waktuMain} jam.";
         return $str ;
@@ -110,8 +137,10 @@ echo "<hr>";
 
 $produk2->setDiskon(50);
 echo $produk2->getHarga();
+echo "<hr>";
 
-
+$produk1->setpenulis("ramdhani");
+echo $produk1->getPenulis();
 
 
 
